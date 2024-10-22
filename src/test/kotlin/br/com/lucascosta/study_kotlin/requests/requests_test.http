@@ -1,0 +1,30 @@
+### Create
+POST http://localhost:8080/accounts
+content-Type: application/json
+
+{
+  "name": "Any Name",
+  "document": "123",
+  "phone": "31999999999"
+}
+
+### GetAll
+GET http://localhost:8080/accounts
+content-Type: application/json
+
+### GetById
+GET http://localhost:8080/accounts/1
+content-Type: application/json
+
+### Update
+PUT http://localhost:8080/accounts/1
+content-Type: application/json
+
+{
+  "name": "Update Any Name",
+  "document": "123",
+  "phone": "31999999999"
+}
+
+### Delete
+DELETE http://localhost:8080/accounts/1
