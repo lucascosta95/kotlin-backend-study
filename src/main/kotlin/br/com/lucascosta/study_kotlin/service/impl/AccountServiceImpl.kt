@@ -4,12 +4,22 @@ import br.com.lucascosta.study_kotlin.entity.Account
 import br.com.lucascosta.study_kotlin.repository.AccountRepository
 import br.com.lucascosta.study_kotlin.service.AccountService
 import org.springframework.stereotype.Service
+import org.springframework.util.Assert
 import java.util.*
 
 @Service
 class AccountServiceImpl(private val repository: AccountRepository) : AccountService {
 
     override fun create(account: Account): Account {
+        Assert.hasLength(account.name, "[name] cannot be empty!")
+        Assert.isTrue(account.name.length >= 5, "[name] must be at least 5 characters long!")
+
+        Assert.hasLength(account.document, "[document] cannot be empty!")
+        Assert.isTrue(account.document.length >= 11, "[document] must be at least 11 characters long!")
+
+        Assert.hasLength(account.phone, "[phone] cannot be empty!")
+        Assert.isTrue(account.phone.length >= 11, "[phone] must be at least 11 characters long!")
+
         return repository.save(account)
     }
 
